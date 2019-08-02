@@ -22,13 +22,13 @@ There is a lot of work and discussion in the AR community right now in relation 
 
 WebXR session creation supports the notion of requesting features on a session. The geoAlignment feature could be requested simply by adding a feature request:
 
-```
+```js
   navigator.xr.requestSession('immersive-ar', {
     requiredFeatures: [ 'geo-alignment' ]
   })
 ```
 or 
-```
+```js
   navigator.xr.requestSession('immersive-ar', {
     optionalFeatures: [ 'geo-alignment' ]
   })
@@ -47,7 +47,7 @@ Once a session is created, geo-alignment may or may not work at any given moment
 
 One way to expose the state of geo-alignment would be to build on the proposed API for [real world geometry](https://github.com/immersive-web/real-world-geometry/blob/master/plane-detection-explainer.md), and include it in the `frame.worldInformation` passed into the rAF callback.
 
-``` 
+```js
 // Function that's passed in to XRSession.requestAnimationFrame().
 function onXRFrame(timestamp, frame) {
   let geoAlignment = frame.worldInformation.geoAlignment;
